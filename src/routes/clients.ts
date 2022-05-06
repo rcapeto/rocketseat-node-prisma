@@ -11,5 +11,8 @@ const clientsRepository = ClientsRepository.getInstance();
 const createClientController = new CreateClientController(clientsRepository);
 const authenticateClientController = new AuthenticateClientController(clientsRepository);
 
-clientsRoute.post('/create', createClientController.handle.bind(createClientController));
-clientsRoute.post('/authenticate', authenticateClientController.handle.bind(authenticateClientController));
+const create = createClientController.handle.bind(createClientController);
+const authenticate = authenticateClientController.handle.bind(authenticateClientController);
+
+clientsRoute.post('/create', create);
+clientsRoute.post('/authenticate', authenticate);
