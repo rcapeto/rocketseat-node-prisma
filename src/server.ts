@@ -1,11 +1,16 @@
 import express from 'express';
 
+import { config } from './config';
+import { clientsRoute } from './routes/clients';
+import { deliverymanRoutes } from './routes/deliveryman';
+
 const app = express();
 
-app.get('/', (request, response) => {
-   return response.send('Hello World');
-});
+app.use(express.json({ limit: '1mb' }));
 
-app.listen(3000, function() {
-   console.log('Server is running...');
+app.use('/clients', clientsRoute);
+app.use('/deliveryman', deliverymanRoutes);
+
+app.listen(config.port, function() {
+   console.log(`Server is running at port: ${config.port}`);
 });

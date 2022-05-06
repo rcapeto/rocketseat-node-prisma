@@ -10,6 +10,8 @@ This project has developed with:
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Prisma](https://www.prisma.io/docs/)
 - [Express](https://github.com/expressjs/express)
+- [Bcrypt](https://openbase.com/js/bcrypt/documentation)
+- [JSON-Web-Token](https://jwt.io/)
 
 ## 🚀 How to execute
 
