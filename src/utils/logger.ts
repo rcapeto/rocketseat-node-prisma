@@ -12,6 +12,6 @@ export const logger = (type: LoggerType, message: string) => {
 
    const date = new Date().toISOString();
 
-   log.write(`\r\n [${date}] - TYPE: ${type} - ${message}`);
+   log.write(`\r\n[${date}] - TYPE: ${type} - ${message}`);
    log.end();
 };

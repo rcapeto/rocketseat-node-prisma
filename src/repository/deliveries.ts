@@ -6,6 +6,16 @@ export interface IDelivery {
    item_name: string;
 };
 
+interface UpdateDelivery {
+   id_deliveryman: string;
+   id_delivery: string;
+};
+
+interface UpdateEndDate {
+   id_deliveryman: string;
+   id_delivery: string;
+};
+
 export class DeliveryRepository {
    private static INSTANCE: DeliveryRepository;
 
@@ -28,7 +38,35 @@ export class DeliveryRepository {
       return await prismaClient.deliveries.findMany({
          where: {
             end_at: null,
+            id_deliveryman: null
          }
       });
+   }
+
+   async update({ id_delivery, id_deliveryman }: UpdateDelivery) {
+      const result = await prismaClient.deliveries.update({
+         where: {
+            id: id_delivery,
+         },
+         data: {
+            id_deliveryman
+         }
+      });
+
+      return result;
+   }
+
+   async updateEndDate({ id_delivery, id_deliveryman }: UpdateEndDate) {
+      const result = await prismaClient.deliveries.updateMany({
+         where: {
+            id: id_delivery, 
+            id_deliveryman
+
+         },
+         data: {
+            end_at: new Date(),
+         }
+      });
+      return result;
    }
 };

@@ -17,8 +17,8 @@ export class FindAllAvailableController {
          const findAllWithoutEndDateUseCase = new FindAllAvailableUseCase(this.deliveryRepository);
          const deliveries = await findAllWithoutEndDateUseCase.execute();
 
-         logger('success', `Get deliveries with success! data: ${JSON.stringify(deliveries)}`);
-         return response.status(config.status.created).json({ data: deliveries });
+         logger('success', `Get deliveries with success! quantity: ${deliveries.length}`);
+         return response.status(config.status.ok).json({ data: deliveries });
 
       } catch(err) {
          const message = `${(err as Error).message} - Error get Deliveries without enddate`;

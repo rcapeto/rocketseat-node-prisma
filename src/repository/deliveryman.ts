@@ -59,4 +59,19 @@ export class DeliverymanRepository {
    async getAllDeliveryman() {
       return await prismaClient.deliveryman.findMany();
    }
+
+   async getDeliveries(id_deliveryman: string) {
+      const deliveries = await prismaClient.deliveryman.findMany({
+         where: {
+            id: id_deliveryman,
+         },
+         select: {
+            username: true,
+            id: true,
+            Deliveries: true,
+         }
+      });
+
+      return deliveries;
+   }
 };

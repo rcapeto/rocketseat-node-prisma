@@ -12,6 +12,7 @@ This project has developed with:
 - [Express](https://github.com/expressjs/express)
 - [Bcrypt](https://openbase.com/js/bcrypt/documentation)
 - [JSON-Web-Token](https://jwt.io/)
+- [Swagger](https://swagger.io/docs/)
 
 ## 🚀 How to execute
 

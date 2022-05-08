@@ -59,4 +59,19 @@ export class ClientsRepository {
    async getClients() {
       return await prismaClient.clients.findMany();
    }
+
+   async getDeliveries(id_client: string) {
+      const deliveries = await prismaClient.clients.findMany({
+         where: {
+            id: id_client,
+         },
+         select: {
+            username: true,
+            id: true,
+            Deliveries: true
+         },
+      });
+
+      return deliveries;
+   }
 };
